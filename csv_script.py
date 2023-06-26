@@ -1,23 +1,22 @@
-import csv
-import requests
-
-CSV_FILE = 'numbers.csv'
-API_ENDPOINT = 'http://demo8119202.mockable.io/'
-
-def call_api(number):
-    payload = {'number': number}  # Customize the payload based on the API requirements
-    response = requests.get(API_ENDPOINT, params=payload)
-    return response.json()  # Assuming the API returns JSON data
-
-def main():
-    with open(CSV_FILE, 'r') as file:
-        reader = csv.reader(file)
-        next(reader)  # Skip the header row if it exists
-        for row in reader:
-            number = int(row[0])  # Assuming the number is in the first column
-            result = call_api(number)
-            print(f'Response for number {number}: {result}')
-            # Do further processing or save the result as needed
-
-if __name__ == '__main__':
-    main()
+# Python 3.x code to demonstrate star pattern
+ 
+# Function to demonstrate printing pattern
+def pypart(n):
+     
+    # outer loop to handle number of rows
+    # n in this case
+    for i in range(0, n):
+     
+        # inner loop to handle number of columns
+        # values changing acc. to outer loop
+        for j in range(0, i+1):
+         
+            # printing stars
+            print("* ",end="")
+      
+        # ending line after each row
+        print("\r")
+ 
+# Driver Code
+n = 5
+pypart(n)
