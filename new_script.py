@@ -13,9 +13,7 @@ membershipFileName = 'memberships.csv'
 
 #System param
 # env = ${env}
-print(os.getenv("env"))
 env = os.getenv("env")
-print(env)
 
 #setting params
 if (env == 'qa') :
