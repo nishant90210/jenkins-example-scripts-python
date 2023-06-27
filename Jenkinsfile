@@ -6,7 +6,7 @@ pipeline {
         sh 'python3 --version'
       }
     }
-    stage('Install Dependencies Numpy') {
+    stage('pip version') {
       steps {
         sh 'pip --version'
       }
