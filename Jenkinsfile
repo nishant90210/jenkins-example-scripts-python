@@ -26,7 +26,7 @@ pipeline {
     }
     stage('print') {
       steps {
-        sh "'python3 new_script.py' + ${params.env}"
+        sh 'python3 new_script.py --env' + params.env
       }
     }
   }

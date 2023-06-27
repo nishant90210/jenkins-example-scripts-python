@@ -11,7 +11,7 @@ import urllib
 membershipFileName = 'memberships.csv'
 
 #System param
-env = ${params.env}
+env = ${env}
 
 #setting params
 if (env == 'qa') :
