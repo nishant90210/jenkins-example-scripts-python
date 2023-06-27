@@ -19,10 +19,14 @@ pipeline {
             echo "${env.WORKSPACE}"
         }
     }
-
     stage('print') {
       steps {
-        sh 'python3 new_script.py'
+        sh '${params.env}'
+      }
+    }
+    stage('print') {
+      steps {
+        sh 'python3 new_script.py' + params.env
       }
     }
   }
