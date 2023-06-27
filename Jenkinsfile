@@ -11,11 +11,9 @@ pipeline {
         sh 'pip3 --version'
       }
     }
-    stages {
-       stage('File path') {
-            steps {
-                echo "${env.WORKSPACE}"
-            }
+    stage('File path') {
+        steps {
+            echo "${env.WORKSPACE}"
         }
     }
     stage('print') {
