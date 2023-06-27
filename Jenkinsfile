@@ -8,6 +8,11 @@ pipeline {
     }
     stage('Install Dependencies Numpy') {
       steps {
+        sh 'pip --version'
+      }
+    }
+    stage('Install Dependencies Numpy') {
+      steps {
         sh 'pip install numpy'
       }
     }
