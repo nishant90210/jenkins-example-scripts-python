@@ -11,15 +11,22 @@ pipeline {
         sh 'pip3 --version'
       }
     }
-    stage('File path') {
-        steps {
-            echo "${env.WORKSPACE}"
-        }
+    parameters {
+    base64File 'yamlFile'
     }
-    stage('print') {
-      steps {
-        sh 'python3 new_script.py'
+    stages {
+      stage('Example') {
+        steps {
+          withFileParameter('yamlFile') {
+            def configVal = readYaml file: yamlFile
+          }
+        }
       }
     }
+    // stage('print') {
+    //   steps {
+    //     sh 'python3 new_script.py'
+    //   }
+    // }
   }
 }
