@@ -11,6 +11,11 @@ pipeline {
         sh 'pip3 --version'
       }
     }
+    stage('Install Dependencies Requests') {
+      steps {
+        sh 'pip3 install requests'
+      }
+    }
     stage('print') {
       steps {
         sh 'python3 new_script.py'
