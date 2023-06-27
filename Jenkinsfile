@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  parameters {
+    string defaultValue: 'qa', description: 'environment to Run', name: 'env', trim: true
+  }
   stages {
     stage('version') {
       steps {
@@ -11,22 +14,16 @@ pipeline {
         sh 'pip3 --version'
       }
     }
-    parameters {
-    base64File 'yamlFile'
-    }
-    stages {
-      stage('Example') {
+    stage('File path') {
         steps {
-          withFileParameter('yamlFile') {
-            def configVal = readYaml file: yamlFile
-          }
+            echo "${env.WORKSPACE}"
         }
+    }
+
+    stage('print') {
+      steps {
+        sh 'python3 new_script.py'
       }
     }
-    // stage('print') {
-    //   steps {
-    //     sh 'python3 new_script.py'
-    //   }
-    // }
   }
 }
