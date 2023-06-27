@@ -19,7 +19,7 @@ pipeline {
             echo "${env.WORKSPACE}"
         }
     }
-    stage('print') {
+    stage('print env') {
       steps {
         sh '${params.env}'
       }
