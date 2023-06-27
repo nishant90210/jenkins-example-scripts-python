@@ -6,12 +6,16 @@ import json
 import hmac
 import hashlib
 import urllib
+import os
 
 # SET UP
 membershipFileName = 'memberships.csv'
 
 #System param
-env = ${env}
+# env = ${env}
+print(os.getenv("env"))
+env = os.getenv("env")
+print(env)
 
 #setting params
 if (env == 'qa') :
