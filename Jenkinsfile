@@ -11,11 +11,6 @@ pipeline {
         sh 'pip3 --version'
       }
     }
-    stage('Install Dependencies Numpy') {
-      steps {
-        sh 'pip3 install numpy'
-      }
-    }
     stage('print') {
       steps {
         sh 'python3 new_script.py'
