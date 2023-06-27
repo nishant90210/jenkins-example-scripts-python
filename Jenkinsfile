@@ -8,12 +8,12 @@ pipeline {
     }
     stage('pip version') {
       steps {
-        sh 'pip --version'
+        sh 'pip3 --version'
       }
     }
     stage('Install Dependencies Numpy') {
       steps {
-        sh 'pip install numpy'
+        sh 'pip3 install numpy'
       }
     }
     stage('print') {
