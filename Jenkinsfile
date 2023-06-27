@@ -21,7 +21,7 @@ pipeline {
     }
     stage('print env') {
       steps {
-        sh 'params.env'
+        sh "${params.env}"
       }
     }
     stage('print') {
