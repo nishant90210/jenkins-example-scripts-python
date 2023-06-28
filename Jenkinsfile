@@ -20,7 +20,7 @@ def getFileParamFromWorkspace(fileParamName) {
                     def fileItem = fileParameterValue.getFile()
                     if (fileItem instanceof org.apache.commons.fileupload.disk.DiskFileItem) {
                         def diskFileItem = (org.apache.commons.fileupload.disk.DiskFileItem)fileParameterValue.getFile()
-                        def filePath = new hudson.FilePath(env.WORKSPACE + '/fileparam/' + fileItem.getName())
+                        def filePath = createFilePath(env.WORKSPACE + '/fileparam/' + fileItem.getName())
                         def destFolder = filePath.getParent()
                         destFolder.mkdirs()
                         filePath.copyFrom(diskFileItem)
@@ -36,7 +36,7 @@ def getFileParamFromWorkspace(fileParamName) {
 pipeline {
   agent any
   parameters {
-    file(name: 'inputFile', description: 'Input file in format: artifactId/version/timestamp')
+    file(name: 'inputFile', description: 'Membership Ids file')
     choice(choices: ['qa','prod'], description: 'Environment', name: 'env')
   }
   stages {
