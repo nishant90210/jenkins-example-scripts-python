@@ -38,16 +38,6 @@ pipeline {
         sh 'pip3 --version'
       }
     }
-    stage('File path') {
-        steps {
-            echo "${env.WORKSPACE}"
-        }
-    }
-    stage('print env') {
-      steps {
-        echo "${params.env}"
-      }
-    }
     stage('Launch file uploader') {
         steps {
             echo "Running image pipelines-cs-file-uploader"
