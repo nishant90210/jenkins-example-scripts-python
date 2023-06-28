@@ -1,4 +1,3 @@
-@Library('deploy-pipeline-shared-libraries')_
 import java.text.SimpleDateFormat
 
 def createFilePath(path) {
