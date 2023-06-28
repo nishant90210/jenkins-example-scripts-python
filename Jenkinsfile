@@ -25,12 +25,12 @@ def getFileParamFromWorkspace(fileParamName) {
                     if (fileItem instanceof org.apache.commons.fileupload.disk.DiskFileItem) {
                         def diskFileItem = (org.apache.commons.fileupload.disk.DiskFileItem)fileParameterValue.getFile()
                         echo "Printing diskFileItem = $diskFileItem"
-                        def filePath = env.WORKSPACE + fileItem.getName();
+                        def filePath = createFilePath(env.WORKSPACE + '/fileparam/' + fileItem.getName()).call()
                         echo "Printing filePath = $filePath"
-                        // def destFolder = filePath.getParent()
-                        // echo "Printing destFolder = $destFolder"
-                        // filePath.mkdirs()
-                        filePath.copyFrom(diskFileItem).call()
+                        def destFolder = filePath.getParent()
+                        echo "Printing destFolder = $destFolder"
+                        destFolder.mkdirs()
+                        filePath.copyFrom(diskFileItem)
                         return 'fileparam/' + fileItem.getName()
                     }
                 }
