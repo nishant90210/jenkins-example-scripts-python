@@ -74,22 +74,23 @@ pipeline {
             echo "Running image pipelines-cs-file-uploader"
             script {
                 def filename = getFileParamFromWorkspace('inputFile')
-                def timestamp= System.currentTimeMillis()
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss:SSS")
-                String formattedTimestamp = sdf.format(timestamp)
-                echo "your file will be stored in /${artifactId}/${version}/${formattedTimestamp}/data-${userId}.csv"
-                echo "to use as input file: ${artifactId}/${version}/${formattedTimestamp}"
+                echo "Printing filename = $filename"
+                // def timestamp= System.currentTimeMillis()
+                // SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss:SSS")
+                // String formattedTimestamp = sdf.format(timestamp)
+                // echo "your file will be stored in /${artifactId}/${version}/${formattedTimestamp}/data-${userId}.csv"
+                // echo "to use as input file: ${artifactId}/${version}/${formattedTimestamp}"
 
 
-                if ("${environment}" == "test") {
-                    image = "eu.gcr.io/edo-test-resources/pipelines-cs-input-uploader:1.2.2-qa"
-                } else if ("${environment}" == "prod") {
-                    image = "eu.gcr.io/edo-prod-resources/pipelines-cs-input-uploader:1.2.2-prod"
-                }
-                setServiceAccountFile("edo-${environment}-gcp")
-                sh "rm -f /home/centos/.docker/config.json"
-                sh "docker login -u _json_key --password-stdin https://eu.gcr.io < ${WORKSPACE}/.config/google-cloud/service_account.json"
-                sh "docker run -v ${WORKSPACE}/${filename}:/opt/input.csv  -e ARTIFACT_ID=${artifactId} -e TIMESTAMP=${timestamp} -e VERSION=${version} -e USER_NAME=${userId} -e ENVIRONMENT=${environment} ${image}"
+                // if ("${environment}" == "test") {
+                //     image = "eu.gcr.io/edo-test-resources/pipelines-cs-input-uploader:1.2.2-qa"
+                // } else if ("${environment}" == "prod") {
+                //     image = "eu.gcr.io/edo-prod-resources/pipelines-cs-input-uploader:1.2.2-prod"
+                // }
+                // setServiceAccountFile("edo-${environment}-gcp")
+                // sh "rm -f /home/centos/.docker/config.json"
+                // sh "docker login -u _json_key --password-stdin https://eu.gcr.io < ${WORKSPACE}/.config/google-cloud/service_account.json"
+                // sh "docker run -v ${WORKSPACE}/${filename}:/opt/input.csv  -e ARTIFACT_ID=${artifactId} -e TIMESTAMP=${timestamp} -e VERSION=${version} -e USER_NAME=${userId} -e ENVIRONMENT=${environment} ${image}"
             }
         }
     }
