@@ -73,7 +73,7 @@ pipeline {
         steps {
             echo "Running image pipelines-cs-file-uploader"
             script {
-                def filename = getFileParamFromWorkspace('inputFile').call()
+                def filename = getFileParamFromWorkspace('inputFile')
                 def timestamp= System.currentTimeMillis()
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss:SSS")
                 String formattedTimestamp = sdf.format(timestamp)
