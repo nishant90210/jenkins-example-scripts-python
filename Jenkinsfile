@@ -1,8 +1,8 @@
 import java.text.SimpleDateFormat
 
 def createFilePath(path) {
-    echo "$path"
-    echo "$env['NODE_NAME']"
+    echo "Printing path = $path"
+    echo "Printing NODE_NAME = $env['NODE_NAME']"
     if (env['NODE_NAME'] == null) {
         error "envvar NODE_NAME is not set, probably not inside an node {} or running an older version of Jenkins!";
     } else if (env['NODE_NAME'].equals("master")) {
@@ -18,12 +18,17 @@ def getFileParamFromWorkspace(fileParamName) {
         for (param in paramsAction.getParameters()) {
             if (param instanceof FileParameterValue) {
                 def fileParameterValue = (FileParameterValue)param
+                echo "Printing fileParameterValue = $fileParameterValue"
                 if (fileParamName.equals(fileParameterValue.getName())) {
                     def fileItem = fileParameterValue.getFile()
+                    echo "Printing fileItem = $fileItem"
                     if (fileItem instanceof org.apache.commons.fileupload.disk.DiskFileItem) {
                         def diskFileItem = (org.apache.commons.fileupload.disk.DiskFileItem)fileParameterValue.getFile()
-                        def filePath = createFilePath(env.WORKSPACE + '/fileparam/' + fileItem.getName()).call()
+                        echo "Printing diskFileItem = $diskFileItem"
+                        def filePath = env.WORKSPACE + '/fileparam/' + fileItem.getName();
+                        echo "Printing filePath = $filePath"
                         def destFolder = filePath.getParent()
+                        echo "Printing destFolder = $destFolder"
                         destFolder.mkdirs()
                         filePath.copyFrom(diskFileItem)
                         return 'fileparam/' + fileItem.getName()
