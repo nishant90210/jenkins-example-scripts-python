@@ -27,7 +27,7 @@ def getFileParamFromWorkspace(fileParamName) {
                     if (fileItem instanceof org.apache.commons.fileupload.disk.DiskFileItem) {
                         def diskFileItem = (org.apache.commons.fileupload.disk.DiskFileItem)fileParameterValue.getFile()
                         echo "Printing diskFileItem = $diskFileItem"
-                        def filePath = createFilePath(env.WORKSPACE + '/fileparam/' + fileItem.getName()).call()
+                        def filePath = createFilePath(env.WORKSPACE + '/fileparam/' + fileItem.getName())
                         echo "Printing filePath = $filePath"
                         def destFolder = filePath.getParent()
                         echo "Printing destFolder = $destFolder"
