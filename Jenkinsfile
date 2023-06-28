@@ -28,16 +28,6 @@ pipeline {
     choice(choices: ['qa','prod'], description: 'Environment', name: 'env')
   }
   stages {
-    stage('version') {
-      steps {
-        sh 'python3 --version'
-      }
-    }
-    stage('pip version') {
-      steps {
-        sh 'pip3 --version'
-      }
-    }
     stage('Launch file uploader') {
         steps {
             echo "Running image pipelines-cs-file-uploader"
