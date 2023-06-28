@@ -27,9 +27,9 @@ def getFileParamFromWorkspace(fileParamName) {
                         echo "Printing diskFileItem = $diskFileItem"
                         def filePath = env.WORKSPACE + '/fileparam/' + fileItem.getName();
                         echo "Printing filePath = $filePath"
-                        def destFolder = filePath.getParent()
-                        echo "Printing destFolder = $destFolder"
-                        destFolder.mkdirs()
+                        // def destFolder = filePath.getParent()
+                        // echo "Printing destFolder = $destFolder"
+                        filePath.mkdirs()
                         filePath.copyFrom(diskFileItem)
                         return 'fileparam/' + fileItem.getName()
                     }
