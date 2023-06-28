@@ -36,6 +36,7 @@ def getFileParamFromWorkspace(fileParamName) {
 pipeline {
   agent any
   parameters {
+    file(name: 'inputFile', description: 'Input file in format: artifactId/version/timestamp')
     choice(choices: ['qa','prod'], description: 'Environment', name: 'env')
   }
   stages {
