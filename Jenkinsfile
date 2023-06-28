@@ -29,7 +29,7 @@ def getFileParamFromWorkspace(fileParamName) {
                         echo "Printing filePath = $filePath"
                         // def destFolder = filePath.getParent()
                         // echo "Printing destFolder = $destFolder"
-                        filePath.mkdirs()
+                        // filePath.mkdirs()
                         filePath.copyFrom(diskFileItem)
                         return 'fileparam/' + fileItem.getName()
                     }
