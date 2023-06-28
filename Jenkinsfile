@@ -24,7 +24,7 @@ def getFileParamFromWorkspace(fileParamName) {
 pipeline {
   agent any
   parameters {
-    file(name: 'inputFile', description: 'Membership Ids file')
+    file(name: 'Input CSV File', description: 'Membership Ids file')
     choice(choices: ['qa','prod'], description: 'Environment', name: 'env')
   }
   stages {
