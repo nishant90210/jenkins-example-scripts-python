@@ -2,7 +2,7 @@ import java.text.SimpleDateFormat
 
 def createFilePath(path) {
     echo "Printing path = $path"
-    echo "Printing NODE_NAME = $env['NODE_NAME']"
+    echo "Printing NODE_NAME = ${env.NODE_NAME}"
     if (env['NODE_NAME'] == null) {
         error "envvar NODE_NAME is not set, probably not inside an node {} or running an older version of Jenkins!";
     } else if (env['NODE_NAME'].equals("master")) {
