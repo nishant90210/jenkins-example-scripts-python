@@ -94,10 +94,10 @@ pipeline {
             }
         }
     }
-    stage('print') {
-      steps {
-        sh 'python3 new_script.py'
-      }
-    }
+    // stage('Build') {
+    //   steps {
+    //     sh 'python3 new_script.py'
+    //   }
+    // }
   }
 }
