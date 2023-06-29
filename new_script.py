@@ -227,6 +227,7 @@ def renewAllMemberships(membershipIds):
 
 def program():
     # Preprocess file
+    print ("starting processing")
     membershipsIds = prepare_data(membershipFileName)
     for membershipsId in membershipsIds:
         print ("------------------------------")
