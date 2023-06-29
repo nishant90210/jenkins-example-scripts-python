@@ -12,7 +12,7 @@ def getFileParamFromWorkspace(fileParamName) {
                         def destFolder = filePath.getParent()
                         destFolder.mkdirs()
                         filePath.copyFrom(diskFileItem)
-                        return 'fileparam/' + fileItem.getName()
+                        return 'file/' + fileItem.getName()
                     }
                 }
             }
@@ -24,7 +24,7 @@ def getFileParamFromWorkspace(fileParamName) {
 pipeline {
   agent any
   parameters {
-    file(name: 'inputFile', description: 'Membership Ids file')
+    file(name: 'Input File', description: 'Membership Ids file')
     choice(choices: ['qa','prod'], description: 'Environment', name: 'env')
   }
   stages {
