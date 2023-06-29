@@ -9,7 +9,7 @@ import urllib
 import os
 
 # SET UP
-membershipFileName = '/Users/nishant/my-jenkins/jenkins-home/workspace/TestCSV/fileparam/memberships.csv'
+membershipFileName = '/Users/nishant/my-jenkins/jenkins-home/workspace/TestCSV/file/memberships.csv'
 
 #System param
 # env = ${env}
