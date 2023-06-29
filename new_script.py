@@ -46,7 +46,7 @@ else:
 def prepare_data(inFileName):
 # Load CSV train and test files
 # Load CSV train and test files
-    return np.genfromtxt(open(inFileName, encoding='utf-8'), delimiter=",", skiprows=0, dtype=np.int64)
+    return np.loadtxt(open(inFileName, encoding='utf-8'), delimiter=",", skiprows=0, dtype=np.int64)
 
 #################################
 ##  CALCULATE PWD BOOKING API  ##
