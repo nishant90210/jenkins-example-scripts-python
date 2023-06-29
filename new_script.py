@@ -234,7 +234,7 @@ def program():
         print ("membershipsId = " + str(membershipId))
         print ("------------------------------")
     # Renewal Process
-    renewAllMemberships(membershipsIds)
+    # renewAllMemberships(membershipsIds)
 
 program()
 print("Finished processing")
