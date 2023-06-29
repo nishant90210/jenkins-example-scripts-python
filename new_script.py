@@ -220,7 +220,7 @@ def renewAllMemberships(membershipIds):
         print ("printing membershipId # " + str(membershipId))
         print ("____________________________________")
         print(membershipId)
-        renewMembership(membershipId)
+        # renewMembership(membershipId)
         print ("Processed entry # " + str(membershipId))
         print ("____________________________________")
 
