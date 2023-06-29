@@ -20,7 +20,7 @@ def getFileParamFromWorkspace(fileParamName) {
                     def fileItem = fileParameterValue.getFile()
                     if (fileItem instanceof org.apache.commons.fileupload.disk.DiskFileItem) {
                         def diskFileItem = (org.apache.commons.fileupload.disk.DiskFileItem)fileParameterValue.getFile()
-                        def filePath = new hudson.FilePath(null, env.WORKSPACE + '/fileparam/' + fileItem.getName())
+                        def filePath = createFilePath(env.WORKSPACE + '/fileparam/' + fileItem.getName())
                         def destFolder = filePath.getParent()
                         destFolder.mkdirs()
                         filePath.copyFrom(diskFileItem)
