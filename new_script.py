@@ -231,7 +231,7 @@ def program():
     membershipsIds = prepare_data(membershipFileName)
     for membershipsId in membershipsIds:
         print ("------------------------------")
-        print ("membershipsId = $membershipsId")
+        print ("membershipsId = " + str(membershipId))
         print ("------------------------------")
     # Renewal Process
     renewAllMemberships(membershipsIds)
