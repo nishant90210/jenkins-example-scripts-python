@@ -24,7 +24,7 @@ def getFileParamFromWorkspace(fileParamName) {
 pipeline {
   agent any
   parameters {
-    file(name: 'Input File', description: 'Membership Ids file')
+    file(name: 'Input_File', description: 'Membership Ids file')
     choice(choices: ['qa','prod'], description: 'Environment', name: 'env')
   }
   stages {
@@ -32,8 +32,8 @@ pipeline {
         steps {
             echo "Running image pipelines-cs-file-uploader"
             script {
-                def filename = getFileParamFromWorkspace('inputFile')
-                echo "$filename"
+                def filename = getFileParamFromWorkspace('Input_File')
+                echo "Priting = $filename"
             }
         }
     }
