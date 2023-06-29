@@ -32,15 +32,14 @@ pipeline {
         steps {
             echo "Running image pipelines-cs-file-uploader"
             script {
-                def filename = getFileParamFromWorkspace('Input_File')
-                echo "Priting = $filename"
+                getFileParamFromWorkspace('Input_File')
             }
         }
     }
-    // stage('Build') {
-    //   steps {
-    //     sh 'python3 new_script.py'
-    //   }
-    // }
+    stage('Build') {
+      steps {
+        sh 'python3 new_script.py'
+      }
+    }
   }
 }
