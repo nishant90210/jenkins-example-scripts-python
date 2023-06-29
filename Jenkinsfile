@@ -33,7 +33,7 @@ pipeline {
             echo "Running image pipelines-cs-file-uploader"
             script {
                 def filename = getFileParamFromWorkspace('inputFile')
-                echo "${filename}"
+                echo "$filename"
             }
         }
     }
