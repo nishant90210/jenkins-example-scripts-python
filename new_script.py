@@ -216,6 +216,9 @@ def renewMembership(membershipId):
 
 def renewAllMemberships(membershipIds):
     for membershipId in membershipIds:
+        print ("____________________________________")
+        print ("printing membershipId # " + str(membershipId))
+        print ("____________________________________")
         print(membershipId)
         renewMembership(membershipId)
         print ("Processed entry # " + str(membershipId))
@@ -227,14 +230,10 @@ def renewAllMemberships(membershipIds):
 
 def program():
     # Preprocess file
-    print ("starting processing")
     membershipsIds = prepare_data(membershipFileName)
-    for membershipsId in membershipsIds:
-        print ("------------------------------")
-        print ("membershipsId = " + str(membershipId))
-        print ("------------------------------")
+
     # Renewal Process
-    # renewAllMemberships(membershipsIds)
+    renewAllMemberships(membershipsIds)
 
 program()
 print("Finished processing")
