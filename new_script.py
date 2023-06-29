@@ -228,7 +228,10 @@ def renewAllMemberships(membershipIds):
 def program():
     # Preprocess file
     membershipsIds = prepare_data(membershipFileName)
-    echo "membershipsIds = $membershipsIds"
+    for membershipsId in membershipsIds:
+        print ("------------------------------")
+        print ("membershipsId = $membershipsId")
+        print ("------------------------------")
     # Renewal Process
     renewAllMemberships(membershipsIds)
 
