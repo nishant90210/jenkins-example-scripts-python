@@ -50,7 +50,7 @@ pipeline {
     // }
     stage('Build') {
       steps {
-        withCredentials([string(credentialsId: 'example-credentials-id', variable: 'CREDENTIALS')]) {
+        withCredentials([usernamePassword(credentialsId: 'example-credentials-id', variable: 'CREDENTIALS')]) {
           dir("${env.WORKSPACE}/auto-renewal") {
             sh 'pwd'
             sh '''
