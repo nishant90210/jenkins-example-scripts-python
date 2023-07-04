@@ -36,13 +36,16 @@ pipeline {
             }
         }
     }
-    steps {
-      sh "pwd"
-      // dir('your-sub-directory') {
-      //   sh "pwd"
-      // }
-      // sh "pwd"
-    } 
+    stage('Finding Path') {
+        step {
+        echo "${pwd}"
+        sh "pwd"
+        // dir('your-sub-directory') {
+        //   sh "pwd"
+        // }
+        // sh "pwd"
+      } 
+    }
     stage('Build') {
       steps {
         sh 'python3 new_script.py'
