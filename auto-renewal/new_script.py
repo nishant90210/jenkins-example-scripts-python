@@ -13,6 +13,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('--filePath', help='Absolute File Path')
 membershipFileName = parser.parse_args().filePath
+print("membershipFileName: = " + membershipFileName)
 
 #System param
 # env = ${env}
