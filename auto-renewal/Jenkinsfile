@@ -42,10 +42,10 @@ pipeline {
       steps {
         script {
           ABS_FILE_PATH = "${env.WORKSPACE}/${FILE_PATH}"
-          echo "${absFilePath}"
+          echo "ABS_FILE_PATH = ${absFilePath}"
         }
         dir("${env.WORKSPACE}/auto-renewal"){
-          echo "${absFilePath}"
+          echo "ABS_FILE_PATH in fir = ${absFilePath}"
           sh "pwd"
           // sh "python3 new_script.py --filePath '${absFilePath}"
         }
