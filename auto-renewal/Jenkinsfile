@@ -24,6 +24,9 @@ def getFileParamFromWorkspace(fileParamName) {
 
 pipeline {
   agent any
+  environment {
+    CREDENTAILS = credentials('example-credentials-id')
+  }
   parameters {
     file(name: 'Input_File', description: 'Membership Ids file')
     choice(choices: ['qa','prod'], description: 'Environment', name: 'env')
@@ -40,8 +43,8 @@ pipeline {
     stage('Build') {
       steps {
         dir("${env.WORKSPACE}/auto-renewal"){
-          sh "pwd"
-          sh "python3 new_script.py --filePath '${FILE_PATH}'"
+          sh 'pwd'
+          sh 'python3 auto-renewal.py --username ${CREDENTAILS.USR} --password ${CREDENTAILS.PSW} --filePath ${FILE_PATH}'
         }
       }
     }
