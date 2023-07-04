@@ -37,14 +37,14 @@ pipeline {
         }
     }
     stage('Finding Path') {
-        step {
-        echo "${pwd}"
-        sh "pwd"
-        // dir('your-sub-directory') {
-        //   sh "pwd"
-        // }
-        // sh "pwd"
-      } 
+        steps {
+          echo "${pwd}"
+          sh "pwd"
+          // dir('your-sub-directory') {
+          //   sh "pwd"
+          // }
+          // sh "pwd"
+        } 
     }
     stage('Build') {
       steps {
