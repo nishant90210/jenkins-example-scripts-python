@@ -36,6 +36,13 @@ pipeline {
             }
         }
     }
+    steps {
+      sh "pwd"
+      // dir('your-sub-directory') {
+      //   sh "pwd"
+      // }
+      // sh "pwd"
+    } 
     stage('Build') {
       steps {
         sh 'python3 new_script.py'
