@@ -24,10 +24,6 @@ def getFileParamFromWorkspace(fileParamName) {
 
 pipeline {
   agent any
-  environment {
-      filePath = "${env.WORKSPACE} + '/' + ${FILE_PATH}"
-      echo "filePath"
-  }
   parameters {
     file(name: 'Input_File', description: 'Membership Ids file')
     choice(choices: ['qa','prod'], description: 'Environment', name: 'env')
@@ -38,6 +34,7 @@ pipeline {
             echo "Running image pipelines-cs-file-uploader"
             script {
                 FILE_PATH = getFileParamFromWorkspace('Input_File')
+                echo "${FILE_PATH}"
             }
         }
     }
