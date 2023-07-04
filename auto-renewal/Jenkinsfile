@@ -1,5 +1,4 @@
 def FILE_PATH
-def ABS_FILE_PATH
 def getFileParamFromWorkspace(fileParamName) {
     def paramsAction = currentBuild.rawBuild.getAction(ParametersAction.class);
     if (paramsAction != null) {
@@ -41,7 +40,6 @@ pipeline {
     stage('Build') {
       steps {
         dir("${env.WORKSPACE}/auto-renewal"){
-          echo "FILE_PATH in dir = ${FILE_PATH}"
           sh "pwd"
           sh "python3 new_script.py --filePath '${FILE_PATH}'"
         }
