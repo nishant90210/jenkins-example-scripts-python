@@ -43,7 +43,7 @@ pipeline {
         dir("${env.WORKSPACE}/auto-renewal"){
           echo "FILE_PATH in dir = ${FILE_PATH}"
           sh "pwd"
-          sh "python3 new_script.py --filePath '${FILE_PATH}"
+          sh "python3 new_script.py --filePath '${FILE_PATH}'"
         }
       }
     }
