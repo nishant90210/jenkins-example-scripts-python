@@ -1,3 +1,4 @@
+def FILE_PATH
 def getFileParamFromWorkspace(fileParamName) {
     def paramsAction = currentBuild.rawBuild.getAction(ParametersAction.class);
     if (paramsAction != null) {
@@ -23,6 +24,10 @@ def getFileParamFromWorkspace(fileParamName) {
 
 pipeline {
   agent any
+  environment {
+      filePath = "${env.WORKSPACE} + '/' + ${FILE_PATH}"
+      echo "filePath"
+  }
   parameters {
     file(name: 'Input_File', description: 'Membership Ids file')
     choice(choices: ['qa','prod'], description: 'Environment', name: 'env')
@@ -32,7 +37,7 @@ pipeline {
         steps {
             echo "Running image pipelines-cs-file-uploader"
             script {
-                getFileParamFromWorkspace('Input_File')
+                FILE_PATH = getFileParamFromWorkspace('Input_File')
             }
         }
     }
