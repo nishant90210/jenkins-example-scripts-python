@@ -39,10 +39,12 @@ pipeline {
     }
     stage('Build') {
       steps {
-        dir("${env.WORKSPACE}/auto-renewal"){
-          sh "pwd"
+        script {
           def absFilePath = "${env.WORKSPACE} + '/' + ${FILE_PATH}"
           echo "${absFilePath}"
+        }
+        dir("${env.WORKSPACE}/auto-renewal"){
+          sh "pwd"
           // sh "python3 new_script.py --filePath '${absFilePath}"
         }
       }
