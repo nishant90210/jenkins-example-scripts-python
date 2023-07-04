@@ -9,7 +9,9 @@ import urllib
 import os
 
 # SET UP
-membershipFileName = '/Users/nishant/my-jenkins/jenkins-home/workspace/TestCSV/file/memberships.csv'
+# membershipFileName = '/Users/nishant/my-jenkins/jenkins-home/workspace/TestCSV/file/memberships.csv'
+membershipFileName = os.environ.get('absFilePath')
+print("membershipFileName: = " + membershipFileName)
 
 #System param
 # env = ${env}
@@ -228,7 +230,7 @@ def renewAllMemberships(membershipIds):
 def program():
     # Preprocess file
     membershipsIds = prepare_data(membershipFileName)
-    
+
     # Renewal Process
     renewAllMemberships(membershipsIds)
 
