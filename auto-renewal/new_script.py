@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--filePath', help='Absolute File Path')
 args = parser.parse_args()
 
-print('Absolute File Path:', args.name)
+print('Absolute File Path:', args.filePath)
 
 
 # SET UP
