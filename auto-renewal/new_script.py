@@ -7,16 +7,24 @@ import hmac
 import hashlib
 import urllib
 import os
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--filePath', help='Absolute File Path')
+args = parser.parse_args()
+
+print('Absolute File Path:', args.name)
+
 
 # SET UP
 # membershipFileName = '/Users/nishant/my-jenkins/jenkins-home/workspace/TestCSV/file/memberships.csv'
-membershipFileName = os.environ.get('filePath')
-print("membershipFileName: = " + membershipFileName)
+# membershipFileName = os.environ.get('filePath')
+# print("membershipFileName: = " + membershipFileName)
 
 #System param
 # env = ${env}
 env = os.getenv("env")
-
+print("env: = " + env)
 #setting params
 # if (env == 'qa') :
 #     bookingApiHost = 'http://booking-engine.sticky.service.gcp01.edo.sv/engine'
