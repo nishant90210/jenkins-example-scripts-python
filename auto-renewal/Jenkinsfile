@@ -34,15 +34,16 @@ pipeline {
             echo "Running image pipelines-cs-file-uploader"
             script {
                 FILE_PATH = getFileParamFromWorkspace('Input_File')
-                echo "${FILE_PATH}"
             }
         }
     }
     stage('Build') {
       steps {
+        def absFilePath = "${env.WORKSPACE} + '/' + ${FILE_PATH}"
+        echo "${absFilePath}"
         dir("${env.WORKSPACE}/auto-renewal"){
           sh "pwd"
-          // sh 'python3 new_script.py'
+          // sh "python3 new_script.py --filePath '${absFilePath}"
         }
       }
     }
