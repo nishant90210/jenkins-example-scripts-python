@@ -44,7 +44,7 @@ pipeline {
       steps {
         dir("${env.WORKSPACE}/auto-renewal"){
           sh 'pwd'
-          sh 'python3 auto-renewal.py --username '${CREDENTIALS_USR}' --password '${CREDENTIALS_USR}' --filePath '${FILE_PATH}''
+          sh 'python3 auto-renewal.py --username ${CREDENTIALS_USR} --password ${CREDENTIALS_USR} --filePath ${FILE_PATH}'
         }
       }
     }
