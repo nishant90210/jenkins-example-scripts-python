@@ -40,8 +40,8 @@ pipeline {
     stage('Build') {
       steps {
         script {
-          def absFilePath = "${env.WORKSPACE}/ + ${FILE_PATH}"
-          echo "${absFilePath}"
+          def absFilePath = "${env.WORKSPACE}/${FILE_PATH}"
+          echo "File path = ${absFilePath}"
         }
         dir("${env.WORKSPACE}/auto-renewal"){
           sh "pwd"
