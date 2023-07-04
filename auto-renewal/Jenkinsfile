@@ -38,12 +38,9 @@ pipeline {
     }
     stage('Finding Path') {
         steps {
-          echo "${pwd}"
-          sh "pwd"
-          // dir('your-sub-directory') {
-          //   sh "pwd"
-          // }
-          // sh "pwd"
+          dir("${env.WORKSPACE}/auto-renewal"){
+              sh "pwd"
+          }
         } 
     }
     stage('Build') {
