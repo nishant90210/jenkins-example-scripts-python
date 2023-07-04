@@ -36,7 +36,7 @@ pipeline {
         steps {
             echo "Running image pipelines-cs-file-uploader"
             script {
-                FILE_PATH = "${env.WORKSPACE}" + '/' + getFileParamFromWorkspace('Input_File')
+                FILE_PATH = "${env.WORKSPACE}/" + getFileParamFromWorkspace('Input_File')
             }
         }
     }
@@ -44,7 +44,7 @@ pipeline {
       steps {
         dir("${env.WORKSPACE}/auto-renewal"){
           sh 'pwd'
-          sh 'python3 auto-renewal.py --username ${CREDENTAILS.USR} --password ${CREDENTAILS.PSW} --filePath ${FILE_PATH}'
+          sh "python3 auto-renewal.py --username ${CREDENTAILS.USR} --password ${CREDENTAILS.PSW} --filePath ${FILE_PATH}"
         }
       }
     }
