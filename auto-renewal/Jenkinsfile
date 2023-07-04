@@ -45,7 +45,7 @@ pipeline {
       steps {
         dir("${env.WORKSPACE}/auto-renewal"){
           sh "pwd"
-          sh 'python3 new_script.py'
+          // sh 'python3 new_script.py'
         }
       }
     }
