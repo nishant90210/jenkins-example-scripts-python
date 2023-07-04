@@ -12,6 +12,10 @@ import argparse
 # # SET UP FILE_PATH
 parser = argparse.ArgumentParser()
 parser.add_argument('--filePath', help='Absolute File Path')
+parser.add_argument('--username', help='Username')
+parser.add_argument('--password', help='Password')
+print("Username :- " + parser.parse_args().username)
+print("Password :- " + parser.parse_args().password)
 membershipFileName = parser.parse_args().filePath
 
 # #System param
