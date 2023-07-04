@@ -10,7 +10,7 @@ import os
 
 # SET UP
 # membershipFileName = '/Users/nishant/my-jenkins/jenkins-home/workspace/TestCSV/file/memberships.csv'
-membershipFileName = os.environ.get('absFilePath')
+membershipFileName = os.environ.get('filePath')
 print("membershipFileName: = " + membershipFileName)
 
 #System param
